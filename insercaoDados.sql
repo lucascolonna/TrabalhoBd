@@ -22,3 +22,9 @@ INSERT INTO produto(nome, quantidade, custo_unitario) VALUES
 INSERT INTO consulta(data, valor, duracao, id_paciente, id_procedimento, id_funcionario) VALUES
 ('2023-01-01', 500.0, 1.0, 1, 1, 1),
 ('2023-02-01', 3000.0, 2.0, 2, 2, 2);
+
+-- Inserindo dados na tabela procedimentoProduto
+INSERT INTO procedimento_produto(id_produto, id_procedimento) VALUES
+(1, 1),
+(1, 2),
+(1, 3);

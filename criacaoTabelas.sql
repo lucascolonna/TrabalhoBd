@@ -52,3 +52,12 @@ CREATE TABLE consulta(
     id_funcionario INT UNSIGNED, 
     CONSTRAINT fk_funcionario FOREIGN KEY (id_funcionario) REFERENCES funcionario(matricula)
 )
+
+-- consulta(codigo PK, codigo procedimento, codigo produto)
+CREATE TABLE procedimento_produto(
+    codigo INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_produto INT UNSIGNED,
+    CONSTRAINT fk_produto FOREIGN KEY (id_produto) REFERENCES produto(codigo), 
+	id_procedimento INT UNSIGNED, 
+    CONSTRAINT fk_procedimento_produto FOREIGN KEY (id_procedimento) REFERENCES procedimento(codigo)
+)
