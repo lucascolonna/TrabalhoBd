@@ -1,7 +1,7 @@
 -- Inserindo dados na tabela paciente
-INSERT INTO paciente(codigo, cpf, nome, telefone, data_nascimento, endereco) VALUES
-(1, '12345678901', 'João Silva', '1234567890', '1980-01-01', 'Rua Principal 123, Cidade, Estado'),
-(2, '23456789012', 'Ana Santos', '2345678901', '1990-01-01', 'Avenida Central 456, Cidade, Estado');
+INSERT INTO paciente(cpf, nome, telefone, data_nascimento, endereco) VALUES
+('12345678901', 'João Silva', '1234567890', '1980-01-01', 'Rua Principal 123, Cidade, Estado'),
+('23456789012', 'Ana Santos', '2345678901', '1990-01-01', 'Avenida Central 456, Cidade, Estado');
 
 -- Inserindo dados na tabela funcionario
 INSERT INTO funcionario(matricula, cpf, nome, telefone, data_nascimento) VALUES
@@ -28,3 +28,9 @@ INSERT INTO procedimento_produto(id_produto, id_procedimento) VALUES
 (1, 1),
 (1, 2),
 (1, 3);
+
+-- Inserindo dados na tabela procedimento_consulta
+INSERT INTO procedimento_consulta(id_consulta, id_procedimento) VALUES
+(1, 1),
+(2, 2),
+(1,2);
