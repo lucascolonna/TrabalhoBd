@@ -1,3 +1,37 @@
+--consulta para buscar a margem de lucro por procedimento
+SELECT nome, 
+(preco - custo)/custo AS margem_lucro
+FROM procedimento
+GROUP BY nome
+
+--consulta para buscar os procedimentos mais realizados e 
+--mais rentáveis
+SELECT p.nome, 
+COUNT(c.id_consulta) AS consultas_realizadas, 
+SUM(p.preco) AS faturamento_bruto
+FROM procedimento p
+INNER JOIN consulta_procedimento cp
+ON p.id_procedimento = cp.id_procedimento
+INNER JOIN consulta c
+ON cp.id_consulta = c.id_consulta
+GROUP BY (p.nome)
+ORDER BY 2 DESC, 3 DESC; 
+
+--consulta com o prontuário do paciente
+SELECT pa.*, 
+c.data, 
+p.nome AS nome_procedimento, 
+DATE_ADD(c.data, INTERVAL p.periodicidade DAY) AS retorno
+FROM paciente pa
+INNER JOIN consulta c
+ON c.id_paciente = pa.id_paciente
+INNER JOIN procedimento_consulta pc
+ON pc.id_consulta = c.id_consulta
+INNER JOIN procedimento p
+ON p.id_procedimento = pc.id_procedimento
+ORDER BY nome, 9 DESC                
+
+
 --consulta para buscar as consultas, trazendo informações
 --do paciente e do funcionário responsável. 
 SELECT f.nome AS Funcionario, p.nome AS Paciente, c.data as Data
